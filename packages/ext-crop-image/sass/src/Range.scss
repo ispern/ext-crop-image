@@ -1,0 +1,97 @@
+$ui: 'croprange';
+@import "../../../../ext/packages/ext-theme-neutral/sass/src/window/Window";
+@include extjs-window-ui(
+    $ui: $ui,
+    $ui-border-color: #555,
+    $ui-border-width: 1px,
+    $ui-body-background-color: transparent,
+    $ui-background-color: transparent,
+    $ui-body-border-style: dashed
+);
+.#{$prefix}window-croprange {
+    border-style: dashed;
+    padding: 0;
+
+    $resizer-handler-size: 10px;
+    &.#{$prefix}window-#{$ui}-resizable {
+
+        // Resizable Window element overflow must be visible for embedded handles to accept mouseovers.
+        overflow: visible;
+
+        .#{$prefix}resizable-handle-northwest,
+        .#{$prefix}resizable-handle-northeast,
+        .#{$prefix}resizable-handle-southwest,
+        .#{$prefix}resizable-handle-southeast {
+            width: $resizer-handler-size;
+            height: $resizer-handler-size;
+            border: 1px #eee solid;
+            background: #333;
+            opacity: .5;
+            @include border-radius(0);
+        }
+        .#{$prefix}resizable-handle-north,
+        .#{$prefix}resizable-handle-south,
+        .#{$prefix}resizable-handle-east,
+        .#{$prefix}resizable-handle-west {
+            opacity: 1;
+            overflow: visible;
+            background-color: transparent;
+
+            &:after {
+                display: block;
+                position: absolute;
+                content: "";
+                width: $resizer-handler-size - 2px;
+                height: $resizer-handler-size - 2px;
+                border: 1px #eee solid;
+                background: #333;
+                opacity: .5;
+                @include border-radius(0);
+            }
+        }
+
+
+        .#{$prefix}window-handle-north-br {
+            top: -($resizer-handler-size / 2);
+            &:after {
+                left: 50%;
+            }
+        }
+        .#{$prefix}window-handle-south-br {
+            bottom: -($resizer-handler-size / 2);
+            &:after {
+                top: -($resizer-handler-size / 2);
+                left: 50%;
+            }
+        }
+        .#{$prefix}window-handle-east-br {
+            right: -($resizer-handler-size / 2);
+            &:after {
+                left: -($resizer-handler-size / 2);
+                top: 50%;
+            }
+        }
+        .#{$prefix}window-handle-west-br {
+            left: -($resizer-handler-size / 2);
+            &:after {
+                top: 50%;
+            }
+        }
+        .#{$prefix}window-handle-northwest-br {
+            left: -($resizer-handler-size / 2);
+            top: -($resizer-handler-size / 2);
+        }
+        .#{$prefix}window-handle-northeast-br {
+            right: -($resizer-handler-size / 2);
+            top: -($resizer-handler-size / 2);
+        }
+        .#{$prefix}window-handle-southeast-br {
+            right: -($resizer-handler-size / 2);
+            bottom: -($resizer-handler-size / 2);
+        }
+        .#{$prefix}window-handle-southwest-br {
+            left: -($resizer-handler-size / 2);
+            bottom: -($resizer-handler-size / 2);
+        }
+    }
+}

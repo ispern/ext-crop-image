@@ -1,0 +1,36 @@
+{
+    "name": "ext-crop-image",
+    "type": "code",
+    "creator": "hiromitsu matsuoka",
+    "summary": "Clipping Image Component",
+    "detailedDescription": "This package provide a window component that clipping the image.",
+    "version": "0.0.1",
+    "compatVersion": "0.0.1",
+    "format": "1",
+    "slicer": {
+        "js": [
+            {
+                "path": "${package.dir}/sass/example/custom.js",
+                "isWidgetManifest": true
+            }
+        ]
+    },
+    "output": "${package.dir}/build",
+    "local": true,
+    "framework": "ext",
+    "builds": {
+        "classic": {
+            "theme": "ext-theme-classic"
+        },
+        "crisp": {
+            "theme": "ext-theme-crisp"
+        },
+        "neptune": {
+            "theme": "ext-theme-neptune"
+        }
+    },
+    "sass": {
+        "namespace": "Ext.ux.cropimage"
+    },
+    "requires": []
+}
